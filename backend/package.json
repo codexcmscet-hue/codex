@@ -19,8 +19,6 @@
     "@aws-sdk/s3-request-presigner": "^3.750.0",
     "@codexclub/shared": "*",
     "argon2": "^0.41.1",
-    "chart.js": "^4.4.7",
-    "chartjs-node-canvas": "^4.1.6",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",

@@ -36,13 +36,19 @@ export default function LandingPage() {
           <div className="flex items-center space-x-3">
             <Link
               href="/login"
-              className="px-4 py-2 text-sm text-zinc-300 hover:text-white transition-colors"
+              className="px-3 py-2 text-xs text-zinc-300 hover:text-white transition-colors"
             >
-              Sign In
+              Member Login
+            </Link>
+            <Link
+              href="/volunteer/login"
+              className="px-3 py-2 text-xs text-purple-300 hover:text-purple-200 transition-colors border border-purple-500/20 bg-purple-500/10 rounded-lg"
+            >
+              Volunteer Portal
             </Link>
             <Link
               href="/register"
-              className="px-4 py-2 text-sm font-medium bg-white text-black rounded-lg hover:bg-zinc-200 transition-all shadow-sm"
+              className="px-4 py-2 text-xs font-medium bg-white text-black rounded-lg hover:bg-zinc-200 transition-all shadow-sm"
             >
               Join Club
             </Link>
