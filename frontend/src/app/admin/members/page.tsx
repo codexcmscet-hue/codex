@@ -101,14 +101,20 @@ export default function AdminMembersPage() {
                   <tr key={m.id} className="hover:bg-white/[0.02] transition-colors">
                     <td className="px-6 py-4">
                       <div className="flex items-center space-x-3">
-                        <img
-                          src={m.avatarUrl || `https://api.dicebear.com/7.x/bottts/svg?seed=${m.username}`}
-                          alt={m.username}
-                          className="h-8 w-8 rounded-full bg-white/10 border border-white/20"
-                        />
+                        {m.avatarUrl ? (
+                          <img
+                            src={m.avatarUrl}
+                            alt={m.username}
+                            className="h-8 w-8 rounded-full bg-[rgba(0,168,255,0.1)] border border-[rgba(0,168,255,0.25)] object-cover"
+                          />
+                        ) : (
+                          <div className="h-8 w-8 rounded-full bg-[rgba(0,168,255,0.12)] border border-[rgba(0,168,255,0.3)] flex items-center justify-center text-xs font-bold text-[#00a8ff] uppercase shadow-[0_0_10px_rgba(0,168,255,0.15)]">
+                            {m.displayName?.[0] || m.username?.[0] || 'M'}
+                          </div>
+                        )}
                         <div>
                           <div className="font-semibold text-white">{m.displayName}</div>
-                          <div className="text-xs text-zinc-500">@{m.username} • {m.email}</div>
+                          <div className="text-xs text-slate-400">@{m.username} • {m.email}</div>
                         </div>
                       </div>
                     </td>
