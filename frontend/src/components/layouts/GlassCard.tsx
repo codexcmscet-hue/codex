@@ -21,4 +21,3 @@ export function GlassCard({ children, className, hoverEffect = true, ...props }:
     </div>
   );
 }
-
