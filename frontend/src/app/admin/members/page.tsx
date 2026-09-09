@@ -212,7 +212,7 @@ export default function AdminMembersPage() {
                 <button
                   type="button"
                   onClick={() => setCreditModalOpen(false)}
-                  className="px-4 py-2 text-xs text-zinc-400 hover:text-white"
+                  className="px-4 py-2 text-xs text-slate-400 hover:text-white"
                 >
                   Cancel
                 </button>
@@ -220,7 +220,7 @@ export default function AdminMembersPage() {
                   type="button"
                   disabled={updateScoreMutation.isPending || !reason.trim()}
                   onClick={() => updateScoreMutation.mutate()}
-                  className="px-4 py-2 text-xs font-semibold bg-white text-black rounded-lg hover:bg-zinc-200 transition-all disabled:opacity-50"
+                  className="px-4 py-2 text-xs font-semibold btn-electric rounded-lg transition-all disabled:opacity-50"
                 >
                   {updateScoreMutation.isPending ? 'Updating...' : 'Save Changes'}
                 </button>

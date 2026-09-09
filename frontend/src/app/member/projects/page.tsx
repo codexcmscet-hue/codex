@@ -66,7 +66,7 @@ export default function MemberProjectsPage() {
 
         <button
           onClick={() => setModalOpen(true)}
-          className="inline-flex items-center space-x-2 px-4 py-2.5 bg-white text-black font-semibold rounded-xl text-xs hover:bg-zinc-200 transition-all shadow-md"
+          className="inline-flex items-center space-x-2 px-4 py-2.5 btn-electric rounded-xl text-xs shadow-md"
         >
           <PlusCircle className="h-4 w-4" />
           <span>New Project Blog</span>
@@ -247,14 +247,14 @@ export default function MemberProjectsPage() {
                 <button
                   type="button"
                   onClick={() => setModalOpen(false)}
-                  className="px-4 py-2 text-xs text-zinc-400 hover:text-white"
+                  className="px-4 py-2 text-xs text-slate-400 hover:text-white"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={createProjectBlogMutation.isPending}
-                  className="px-4 py-2 text-xs font-semibold bg-white text-black rounded-lg hover:bg-zinc-200 transition-all disabled:opacity-50"
+                  className="px-4 py-2 text-xs font-semibold btn-electric rounded-lg transition-all disabled:opacity-50"
                 >
                   {createProjectBlogMutation.isPending ? 'Publishing...' : 'Publish Blog'}
                 </button>
