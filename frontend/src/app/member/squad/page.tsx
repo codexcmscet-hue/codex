@@ -163,9 +163,11 @@ export default function MemberSquadPage() {
             <button
               type="submit"
               disabled={registerSquadMutation.isPending}
+              className="w-full py-3 bg-white text-black font-semibold rounded-xl hover:bg-zinc-200 transition-all flex items-center justify-center space-x-2 text-sm disabled:opacity-50 mt-4"
               className="w-full py-3 btn-electric font-semibold rounded-xl transition-all flex items-center justify-center space-x-2 text-sm disabled:opacity-50 mt-4"
             >
               {registerSquadMutation.isPending ? (
+                <Loader2 className="h-4 w-4 animate-spin" />
                 <Loader2 className="h-4 w-4 animate-spin text-black" />
               ) : (
                 <>

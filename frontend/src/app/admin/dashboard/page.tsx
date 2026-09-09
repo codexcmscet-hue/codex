@@ -53,17 +53,22 @@ export default function AdminDashboardPage() {
       {/* Header */}
       <div>
         <h1 className="text-3xl font-bold tracking-tight text-white">System Command Center</h1>
+        <p className="text-sm text-zinc-400 mt-1">Real-time club metrics, performance distribution, and system logs.</p>
         <p className="text-sm text-slate-400 mt-1">Real-time club metrics, performance distribution, and system logs.</p>
       </div>
 
       {/* Metrics Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <GlassCard>
+          <div className="flex items-center justify-between text-zinc-400 mb-2">
+            <span className="text-xs font-mono uppercase">Total Members</span>
+            <Users className="h-4 w-4 text-white" />
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-mono uppercase tracking-wider">Total Members</span>
             <Users className="h-4 w-4 text-[#00a8ff]" />
           </div>
           <div className="text-3xl font-bold text-white">{stats?.totalMembers || 0}</div>
+          <div className="text-xs text-green-400 mt-2 flex items-center space-x-1">
           <div className="text-xs text-[#00c8ff] mt-2 flex items-center space-x-1">
             <TrendingUp className="h-3 w-3" />
             <span>{stats?.activeMembers || 0} Active today</span>
@@ -71,28 +76,41 @@ export default function AdminDashboardPage() {
         </GlassCard>
 
         <GlassCard>
+          <div className="flex items-center justify-between text-zinc-400 mb-2">
+            <span className="text-xs font-mono uppercase">Volunteers</span>
+            <ShieldCheck className="h-4 w-4 text-white" />
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-mono uppercase tracking-wider">Volunteers</span>
             <ShieldCheck className="h-4 w-4 text-[#00a8ff]" />
           </div>
           <div className="text-3xl font-bold text-white">{stats?.totalVolunteers || 0}</div>
+          <div className="text-xs text-zinc-400 mt-2">{stats?.activeVolunteers || 0} on duty</div>
           <div className="text-xs text-slate-400 mt-2">{stats?.activeVolunteers || 0} on duty</div>
         </GlassCard>
 
         <GlassCard>
+          <div className="flex items-center justify-between text-zinc-400 mb-2">
+            <span className="text-xs font-mono uppercase">Active Squads</span>
+            <Code2 className="h-4 w-4 text-white" />
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-mono uppercase tracking-wider">Active Squads</span>
             <Code2 className="h-4 w-4 text-[#00a8ff]" />
           </div>
           <div className="text-3xl font-bold text-white">{stats?.totalSquads || 0}</div>
+          <div className="text-xs text-zinc-400 mt-2">Competitive teams</div>
           <div className="text-xs text-slate-400 mt-2">Competitive teams</div>
         </GlassCard>
 
         <GlassCard>
+          <div className="flex items-center justify-between text-zinc-400 mb-2">
+            <span className="text-xs font-mono uppercase">Avg Credit Score</span>
+            <Activity className="h-4 w-4 text-white" />
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-mono uppercase tracking-wider">Avg Credit Score</span>
             <Activity className="h-4 w-4 text-[#00a8ff]" />
           </div>
+          <div className="text-3xl font-bold text-white">{stats?.averageCreditScore || 0} / 10</div>
+          <div className="text-xs text-zinc-400 mt-2">Overall club rating</div>
           <div className="text-3xl font-bold text-white font-mono">{stats?.averageCreditScore || 0} / 10</div>
           <div className="text-xs text-slate-400 mt-2">Overall club rating</div>
         </GlassCard>
@@ -105,23 +123,31 @@ export default function AdminDashboardPage() {
           <div className="flex items-center justify-between mb-6">
             <div>
               <h2 className="text-base font-bold text-white">Credit Score Distribution</h2>
+              <p className="text-xs text-zinc-400">Strict member credit distribution (0-10)</p>
               <p className="text-xs text-slate-400">Member credit score rating distribution (0–10 scale)</p>
             </div>
           </div>
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={stats?.creditScoreDistribution || []}>
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
+                <XAxis dataKey="score" stroke="#71717a" fontSize={11} />
+                <YAxis stroke="#71717a" fontSize={11} allowDecimals={false} />
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,168,255,0.08)" />
                 <XAxis dataKey="score" stroke="#64748b" fontSize={11} />
                 <YAxis stroke="#64748b" fontSize={11} allowDecimals={false} />
                 <Tooltip
                   contentStyle={{
+                    backgroundColor: '#18181b',
+                    borderColor: 'rgba(255,255,255,0.1)',
+                    borderRadius: '8px',
                     backgroundColor: '#05080e',
                     borderColor: 'rgba(0,168,255,0.3)',
                     borderRadius: '10px',
                     boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
                   }}
                 />
+                <Bar dataKey="count" fill="#ffffff" radius={[4, 4, 0, 0]} />
                 <Bar dataKey="count" fill="#00a8ff" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
@@ -133,6 +159,7 @@ export default function AdminDashboardPage() {
           <div className="flex items-center justify-between mb-6">
             <div>
               <h2 className="text-base font-bold text-white">Member Growth Trend</h2>
+              <p className="text-xs text-zinc-400">Monthly new member registrations</p>
               <p className="text-xs text-slate-400">Monthly new member registrations</p>
             </div>
           </div>
@@ -141,21 +168,30 @@ export default function AdminDashboardPage() {
               <AreaChart data={stats?.memberGrowth || []}>
                 <defs>
                   <linearGradient id="growthGrad" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#ffffff" stopOpacity={0.4} />
+                    <stop offset="95%" stopColor="#ffffff" stopOpacity={0} />
                     <stop offset="5%" stopColor="#00a8ff" stopOpacity={0.4} />
                     <stop offset="95%" stopColor="#00a8ff" stopOpacity={0.0} />
                   </linearGradient>
                 </defs>
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
+                <XAxis dataKey="month" stroke="#71717a" fontSize={11} />
+                <YAxis stroke="#71717a" fontSize={11} allowDecimals={false} />
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(0,168,255,0.08)" />
                 <XAxis dataKey="month" stroke="#64748b" fontSize={11} />
                 <YAxis stroke="#64748b" fontSize={11} allowDecimals={false} />
                 <Tooltip
                   contentStyle={{
+                    backgroundColor: '#18181b',
+                    borderColor: 'rgba(255,255,255,0.1)',
+                    borderRadius: '8px',
                     backgroundColor: '#05080e',
                     borderColor: 'rgba(0,168,255,0.3)',
                     borderRadius: '10px',
                     boxShadow: '0 8px 24px rgba(0,0,0,0.5)',
                   }}
                 />
+                <Area type="monotone" dataKey="members" stroke="#ffffff" fillOpacity={1} fill="url(#growthGrad)" />
                 <Area type="monotone" dataKey="members" stroke="#00a8ff" strokeWidth={2} fillOpacity={1} fill="url(#growthGrad)" />
               </AreaChart>
             </ResponsiveContainer>
@@ -167,18 +203,24 @@ export default function AdminDashboardPage() {
       <GlassCard>
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-base font-bold text-white">Live System Activity Stream</h2>
+          <span className="text-xs text-zinc-400 font-mono">LATEST 10 RECORDS</span>
           <span className="badge-blue text-[10px] font-mono px-2.5 py-0.5 rounded-full">LATEST 10 RECORDS</span>
         </div>
+        <div className="divide-y divide-white/5">
         <div className="divide-y divide-[rgba(0,168,255,0.08)]">
           {stats?.recentActivities?.length === 0 ? (
+            <div className="py-8 text-center text-xs text-zinc-500">No activities recorded yet.</div>
             <div className="py-8 text-center text-xs text-slate-500">No activities recorded yet.</div>
           ) : (
             stats?.recentActivities?.map((act: any) => (
               <div key={act._id} className="py-3 flex items-center justify-between text-sm">
                 <div>
+                  <div className="text-zinc-200 font-medium">{act.description}</div>
+                  <div className="text-xs text-zinc-500 font-mono mt-0.5">{new Date(act.createdAt).toLocaleString()}</div>
                   <div className="text-slate-200 font-medium">{act.description}</div>
                   <div className="text-xs text-slate-500 font-mono mt-0.5">{new Date(act.createdAt).toLocaleString()}</div>
                 </div>
+                <div className="text-xs font-mono font-semibold px-2 py-1 rounded bg-white/10 text-white">
                 <div className="text-xs font-mono font-semibold px-2.5 py-1 rounded-lg bg-[rgba(0,168,255,0.12)] border border-[rgba(0,168,255,0.25)] text-[#00c8ff]">
                   +{act.points} PTS
                 </div>
