@@ -12,6 +12,7 @@
     "dev": "npm run build --workspace=shared && concurrently --kill-others --prefix \"[{name}]\" --names \"BACKEND,FRONTEND\" --prefix-colors \"blue,cyan\" \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:backend": "npm run dev --workspace=backend",
     "dev:frontend": "npm run dev --workspace=frontend",
+    "prepare": "npm run build --workspace=shared",
     "postinstall": "npm run build --workspace=shared",
     "stop": "npx kill-port 3000 5000",
     "build": "npm run build --workspace=shared && npm run build --workspace=backend && npm run build --workspace=frontend",
