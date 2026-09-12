@@ -96,45 +96,6 @@ export default function LandingPage() {
               Member Registration
             </Link>
           </div>
-
-          {/* User-Facing Metrics Cards (No Implementation Clutter) */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-20">
-            <GlassCard className="text-left border-[rgba(0,168,255,0.18)]">
-              <div className="flex items-center justify-between text-slate-400 mb-1">
-                <span className="text-[10px] font-mono tracking-wider uppercase text-slate-400">Total Members</span>
-                <Users className="h-4 w-4 text-[#00a8ff]" />
-              </div>
-              <div className="text-2xl md:text-3xl font-extrabold text-white font-mono">1,200+</div>
-              <div className="text-[11px] text-sky-400 mt-1">Active student coders</div>
-            </GlassCard>
-
-            <GlassCard className="text-left border-[rgba(0,168,255,0.18)]">
-              <div className="flex items-center justify-between text-slate-400 mb-1">
-                <span className="text-[10px] font-mono tracking-wider uppercase text-slate-400">Active Squads</span>
-                <Code2 className="h-4 w-4 text-[#00a8ff]" />
-              </div>
-              <div className="text-2xl md:text-3xl font-extrabold text-white font-mono">48</div>
-              <div className="text-[11px] text-sky-400 mt-1">Project & contest teams</div>
-            </GlassCard>
-
-            <GlassCard className="text-left border-[rgba(0,168,255,0.18)]">
-              <div className="flex items-center justify-between text-slate-400 mb-1">
-                <span className="text-[10px] font-mono tracking-wider uppercase text-slate-400">Events Hosted</span>
-                <Calendar className="h-4 w-4 text-[#00a8ff]" />
-              </div>
-              <div className="text-2xl md:text-3xl font-extrabold text-white font-mono">35+</div>
-              <div className="text-[11px] text-sky-400 mt-1">Hackathons & meetups</div>
-            </GlassCard>
-
-            <GlassCard className="text-left border-[rgba(0,168,255,0.18)]">
-              <div className="flex items-center justify-between text-slate-400 mb-1">
-                <span className="text-[10px] font-mono tracking-wider uppercase text-slate-400">Projects Built</span>
-                <Terminal className="h-4 w-4 text-[#00a8ff]" />
-              </div>
-              <div className="text-2xl md:text-3xl font-extrabold text-white font-mono">120+</div>
-              <div className="text-[11px] text-sky-400 mt-1">Open-source solutions</div>
-            </GlassCard>
-          </div>
         </section>
 
         {/* Features Grid */}
