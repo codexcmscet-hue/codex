@@ -20,3 +20,4 @@ teamHistorySchema.index({ teamId: 1, createdAt: -1 });
 export type TeamHistoryType = InferSchemaType<typeof teamHistorySchema>;
 export type TeamHistoryDocument = HydratedDocument<TeamHistoryType>;
 export const TeamHistoryModel = model<TeamHistoryDocument>('TeamHistory', teamHistorySchema);
+
