@@ -69,6 +69,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/members', memberRoutes);
 app.use('/api/volunteers', volunteerRoutes);
 app.use('/api/squads', squadRoutes);
+app.use('/api/teams', squadRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/credit', creditRoutes);
 app.use('/api/blogs', blogRoutes);

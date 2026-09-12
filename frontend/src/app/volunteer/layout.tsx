@@ -19,7 +19,7 @@ import { cn } from '@/lib/utils';
 const volunteerNavItems = [
   { label: 'Overview', href: '/volunteer/dashboard', icon: LayoutDashboard },
   { label: 'Assigned Members', href: '/volunteer/members', icon: Users },
-  { label: 'Squads', href: '/volunteer/squads', icon: Code2 },
+  { label: 'Teams & Squads', href: '/volunteer/teams', icon: Code2 },
   { label: 'Events', href: '/volunteer/events', icon: Calendar },
   { label: 'Mini Blogs', href: '/volunteer/blogs', icon: FileText },
   { label: 'Club Reports', href: '/volunteer/reports', icon: FileSpreadsheet },

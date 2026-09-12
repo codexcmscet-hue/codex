@@ -4,6 +4,7 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { api } from '@/lib/api';
 import { GlassCard } from '@/components/layouts/GlassCard';
+import { TeamLeaderboard } from '@/components/leaderboard/TeamLeaderboard';
 import { Users, Award, Calendar, ExternalLink, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
@@ -77,7 +78,17 @@ export default function VolunteerDashboardPage() {
           )}
         </div>
       </GlassCard>
+
+      {/* Team Leaderboard Section */}
+      <TeamLeaderboard
+        title="Club Team Leaderboard"
+        subtitle="Live squad standings, credit score adjustments (0–10 scale), and team ranking management."
+        showPodium={true}
+        limit={10}
+        allowCreate={true}
+      />
     </div>
   );
 }
+
 

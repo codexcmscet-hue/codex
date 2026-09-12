@@ -198,7 +198,7 @@ export class EventService {
     const event = await EventModel.findById(eventId);
     if (!event) throw new AppError('Event not found', 404);
 
-    event.images = event.images.filter((img: any) => img.key !== imageKey);
+    event.images = event.images.filter((img: any) => img.key !== imageKey) as any;
     await event.save();
     return event;
   }

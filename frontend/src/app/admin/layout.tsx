@@ -29,7 +29,7 @@ const adminNavItems: NavItem[] = [
   { label: 'Overview', href: '/admin/dashboard', icon: LayoutDashboard },
   { label: 'Members', href: '/admin/members', icon: Users },
   { label: 'Volunteers', href: '/admin/volunteers', icon: ShieldAlert },
-  { label: 'Squads', href: '/admin/squads', icon: Code2 },
+  { label: 'Teams & Squads', href: '/admin/teams', icon: Code2 },
   { label: 'Events', href: '/admin/events', icon: Calendar },
   { label: 'Blogs & Articles', href: '/admin/blogs', icon: FileText },
   { label: 'PDF Reports', href: '/admin/reports', icon: FileSpreadsheet },

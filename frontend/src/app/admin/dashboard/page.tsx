@@ -4,6 +4,7 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { api } from '@/lib/api';
 import { GlassCard } from '@/components/layouts/GlassCard';
+import { TeamLeaderboard } from '@/components/leaderboard/TeamLeaderboard';
 import {
   Users,
   ShieldCheck,
@@ -187,6 +188,14 @@ export default function AdminDashboardPage() {
           )}
         </div>
       </GlassCard>
+
+      {/* Prominent Team Leaderboard Section */}
+      <TeamLeaderboard
+        title="Team Leaderboard"
+        subtitle="Global team standings, credit scores (0–10 scale), and performance rankings."
+        showPodium={true}
+        limit={10}
+      />
     </div>
   );
 }
