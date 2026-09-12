@@ -17,3 +17,4 @@ docker compose down >nul 2>&1
 echo [3/3] Done! All CodeX Club servers and processes terminated.
 echo ===================================================
 pause
+
